@@ -15,7 +15,6 @@ bool checkGroupWord(string word)
                 if(word[i] == word[j])
                 {
                     isGroupWord = false;
-                    break;
                 }
             }
         }
