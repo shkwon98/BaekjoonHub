@@ -1,27 +1,21 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
 
 using namespace std;
 
 int n, m, num;
-vector<int> vecCard, vecResult;
+int card[500001], result[500001];
 bool isfound;
 int low, high, mid;
 
 void init()
 {
     cin >> n;
-    vecCard.reserve(n);
     for (int i = 0; i < n; ++i)
-    {
-        cin >> num;
-        vecCard.push_back(num);
-    }
-    sort(vecCard.begin(), vecCard.end());
+        cin >> card[i];
+    sort(card, card + n);
 
     cin >> m;
-    vecResult.reserve(m);
 }
 
 int main()
@@ -38,24 +32,24 @@ int main()
         while ((low <= high) && !isfound)
         {
             mid = (low + high) / 2;
-            if (vecCard[mid] == num)
+            if (card[mid] == num)
                 isfound = true;
-            else if (vecCard[mid] < num)
+            else if (card[mid] < num)
                 low = mid + 1;
             else
                 high = mid - 1;
         }
         if (isfound)
         {
-            vecResult.push_back(1);
+            result[i] = 1;
         }
         else
-            vecResult.push_back(0);
+            result[i] = 0;
     }
 
-    for (auto it : vecResult)
+    for (int i = 0; i < m; ++i)
     {
-        cout << it << " ";
+        cout << result[i] << " ";
     }
 
     return 0;
