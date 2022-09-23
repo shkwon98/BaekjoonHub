@@ -1,38 +1,33 @@
 #include <iostream>
-#define MAX 9
+#include <vector>
+#define SIZE 8
 using namespace std;
 
-int n,m;
-int arr[MAX] = {0, }; 
-bool visited[MAX] = {0, };
+int n, m;
+vector<int> num(SIZE);
 
-void dfs(int cnt)
+void dfs(int cnt, int start)
 {
-    if(cnt == m + 1)
+    if(cnt == m)
     {
-        for(int i = 1; i <= m; i++)
+        for(int i = 0; i < cnt; i++)
         {
-            cout << arr[i] << ' ';
+            cout << num[i] << ' ';
         }
         cout << '\n';
         return;
     }
-    for(int i = 1; i <= n; i++)
+    for(int i = start; i <= n; i++)
     {
-        if(!visited[i] && (i > arr[cnt - 1]))
-        {
-            visited[i] = true;
-            arr[cnt] = i;
-            dfs(cnt+1);
-            visited[i] = false;
-        }
+        num[cnt] = i;
+        dfs(cnt + 1, i + 1);
     }
 }
 
 int main()
 {
     cin >> n >> m;
-    dfs(1);
+    dfs(0, 1); // 인덱스, 시작탐색값
     
     return 0;
 }
