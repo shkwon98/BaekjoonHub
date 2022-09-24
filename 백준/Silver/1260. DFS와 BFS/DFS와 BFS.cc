@@ -13,35 +13,35 @@ void dfs(int now)
 {
     visited[now] = true;
     cout << now << ' ';
-    
+
     for(int next = 1; next <= N; ++next)
     {
-        if(!visited[next] && graph[now][next])
-            dfs(next);
+        if(!visited[next] && graph[now][next]) dfs(next);
     }
 }
 void bfs(int now)
 {
+    memset(visited, false, sizeof(visited));
+
     queue<int> q;
     q.push(now);
-    
+
     while(!q.empty())
     {
         int curr = q.front();
         q.pop();
-        
-        if(!visited[curr])
+
+        if(visited[curr]) continue;
+
+        visited[curr] = true;
+        cout << curr << ' ';
+
+        for(int next = 1; next <= N; ++next)
         {
-            visited[curr] = true;
-            cout << curr << ' ';
-            
-            for(int next = 1; next <= N; ++next)
-            {
-                if(!visited[next] && graph[curr][next])
-                q.push(next);
-            }
+            if(!visited[next] && graph[curr][next])
+            q.push(next);
         }
-    }   
+    }
 }
 
 int main()
@@ -53,11 +53,10 @@ int main()
         cin >> u >> v;
         graph[u][v] = graph [v][u] = true;
     }
-    
+
     dfs(start);
     cout << "\n";
-    memset(visited, false, sizeof(visited));
     bfs(start);
-    
+
     return 0;
 }
