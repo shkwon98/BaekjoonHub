@@ -15,8 +15,7 @@ int main()
             alphabet[input[i] - 97]++;
     }
     
-    int max = 0;
-    int maxIdx = 0;
+    int max = 0, maxIdx = 0;
     for (int i = 0; i < 26; ++i)
     {
         if (alphabet[i] > max)
