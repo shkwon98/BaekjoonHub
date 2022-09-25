@@ -33,9 +33,9 @@ int main()
     }
     
     if (cnt > 1)
-        cout << "?\n";
+        cout << "?";
     else
-        cout << (char)(maxIdx + 65) << "\n";
+        cout << (char)(maxIdx + 65);
     
     return 0;
 }
