@@ -7,19 +7,19 @@ int arr[10000001];
 
 void quickSort(int* data, int start, int end)
 {
-    if(start >= end) return;
-    
+    if (start >= end) return;
+
     int key = start;
     int i = start + 1;
     int j = end;
     int temp;
-    while(i <= j)
+    while (i <= j)
     {
-        while(data[i] <= data[key])
+        while (i <= end && data[i] <= data[key])
             i++;
-        while(data[j] >= data[key] && j > start)
+        while (j > start && data[j] >= data[key])
             j--;
-        if(i > j)
+        if (i > j)
         {
             temp = data[j];
             data[j] = data[key];
@@ -39,14 +39,14 @@ void quickSort(int* data, int start, int end)
 int main()
 {
     cin >> N;
-    for(int i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i)
         cin >> arr[i];
 
     random_shuffle(arr, arr + N);
     quickSort(arr, 0, N - 1);
 
-    for(int i = 0; i < N; ++i)
-        cout << arr[i] << "\n";
+    for (int i = 0; i < N; ++i)
+    cout << arr[i] << "\n";
 
     return 0;
 }
