@@ -14,7 +14,7 @@ int main()
     sort(arr, arr + N);
 
     for (int i = 0; i < N; ++i)
-        cout << arr[i] << "\n";
+        printf("%d\n", arr[i]);
 
     return 0;
 }
