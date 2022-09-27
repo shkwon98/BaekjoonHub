@@ -1,25 +1,25 @@
 #include <iostream>
-#include <deque>
+#include <queue>
 using namespace std;
 
 int N;
-deque<int> dq;
+queue<int> q;
 
 int main()
 {
     cin >> N;
     for(int i = 1; i <= N; ++i)
-        dq.push_back(i);
+        q.push(i);
     
-    for(int i = 0; i < N - 1; ++i)
+    while(q.size() != 1)
     {
-        dq.pop_front();
+        q.pop();
         
-        int num = dq.front();
-        dq.pop_front();
-        dq.push_back(num);
+        int num = q.front();
+        q.pop();
+        q.push(num);
     }
-    cout << dq.front();
+    cout << q.front();
         
     return 0;
 }
