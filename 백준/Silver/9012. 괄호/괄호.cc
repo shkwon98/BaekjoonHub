@@ -15,7 +15,7 @@ void vps(string str)
     {
         if(str[i] == '(') cnt++;
         else cnt--;
-        
+
         if(cnt < 0)
         {
             cout << "NO\n";
@@ -27,7 +27,7 @@ void vps(string str)
         cout << "NO\n";
         return;
     }
-    
+
     cout << "YES\n";
     return;
 }
@@ -42,9 +42,7 @@ int main()
     }
 
     for(int i = 0; i < N; ++i)
-    {
         vps(v[i]);
-    }
 
     return 0;
 }
