@@ -1,10 +1,12 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <vector>
 using namespace std;
 
 int N;
-string input[50];
+string input;
+vector<string> v;
 
 int getSum(string a)
 {
@@ -36,12 +38,15 @@ int main()
 {
     cin >> N;
     for(int i = 0; i < N; ++i)
-        cin >> input[i];
+    {
+        cin >> input;
+        v.push_back(input);
+    }
     
-    sort(input, input + N, compare);
+    sort(v.begin(), v.end(), compare);
     
     for(int i = 0; i < N; ++i)
-        cout << input[i] << "\n";
+        cout << v[i] << "\n";
     
     return 0;
 }
