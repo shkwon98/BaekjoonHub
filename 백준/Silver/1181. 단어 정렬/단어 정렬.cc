@@ -11,10 +11,7 @@ vector<string> v;
 bool compare(string a, string b)
 {
     if (a.length() == b.length())
-    {
-        for (int i = 0; i < a.length(); ++i)
-            return a < b;
-    }
+        return a < b;
     else
         return a.length() < b.length();
 }
