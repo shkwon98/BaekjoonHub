@@ -12,14 +12,15 @@ int fibonacci(int n)
 }
 int main()
 {
+    ios::sync_with_stdio(NULL);
+    cin.tie(NULL);
+
     cin >> T;
     for(int i = 0; i < T; ++i)
     {
         cin >> N;
-        if(N == 0)
-            cout << "1 0\n";
-        else
-            cout << fibonacci(N - 1) << " " << fibonacci(N) << "\n";
+        if(N == 0) cout << "1 0\n";
+        else cout << fibonacci(N - 1) << " " << fibonacci(N) << "\n";
     }
 
     return 0;
