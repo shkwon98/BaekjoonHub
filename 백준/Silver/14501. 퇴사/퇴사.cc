@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int N;
@@ -23,13 +22,15 @@ void func(int day, int sum)
 
 int main()
 {
+    ios::sync_with_stdio(NULL);
+    cin.tie(NULL);
+    
     cin >> N;
     for(int i = 1; i <= N; ++i)
         cin >> term[i] >> pay[i];
-
     for(int i = 1; i <= N; ++i)
         func(i, 0);
-
     cout << total;
+
     return 0;
 }
