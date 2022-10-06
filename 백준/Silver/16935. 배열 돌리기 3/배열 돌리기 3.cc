@@ -8,7 +8,6 @@ int temp[100][100];
 
 void action(int num)
 {
-    bool isRotated = false;
     switch (num)
     {
         case 1:
@@ -16,7 +15,7 @@ void action(int num)
             {
                 for (int j = 0; j < M; ++j)
                 {
-                    temp[i][j] = arr[N - 1 - i][j];
+                    temp[N - 1 - i][j] = arr[i][j];
                 }
             }
             break;
@@ -25,7 +24,7 @@ void action(int num)
             {
                 for (int j = 0; j < M; ++j)
                 {
-                    temp[i][j] = arr[i][M - 1 - j];
+                    temp[i][M - 1 - j] = arr[i][j];
                 }
             }
             break;
@@ -37,7 +36,7 @@ void action(int num)
                     temp[i][j] = arr[N - 1 - j][i];
                 }
             }
-            isRotated = true;
+            swap(N, M);
             break;
         case 4:
             for (int i = 0; i < M; ++i)
@@ -47,7 +46,7 @@ void action(int num)
                     temp[i][j] = arr[j][M - 1 - i];
                 }
             }
-            isRotated = true;
+            swap(N, M);
             break;
         case 5:
             for (int i = 0; i < N / 2; ++i)
@@ -110,20 +109,15 @@ void action(int num)
             }
             break;
     }
-
-    if (isRotated)
-    {
-        int tmp = N;
-        N = M;
-        M = tmp;
-        isRotated = false;
-    }
-
     memcpy(arr, temp, sizeof(arr));
 }
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     cin >> N >> M >> R;
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < M; ++j)
