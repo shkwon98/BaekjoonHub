@@ -10,7 +10,6 @@ struct STUDENT
     int num;
     int Friend[4];
 };
-
 struct POSITION
 {
     int x;
@@ -141,7 +140,7 @@ int main()
         student_arr[s].Friend[2] = f2;
         student_arr[s].Friend[3] = f3;
     }
-    
+
     set_position();
     calculate();
     cout << answer;
