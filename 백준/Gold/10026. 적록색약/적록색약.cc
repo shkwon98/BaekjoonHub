@@ -27,7 +27,7 @@ void bfs(int x, int y, char c)
             if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
             if(isChecked[nx][ny]) continue;
             if(color[nx][ny] != c) continue;
-            
+
             isChecked[nx][ny] = true;
             qPos.push({nx, ny});
         }
@@ -43,7 +43,7 @@ int main()
         cin >> temp;
         color.push_back(temp);
     }
-    
+
     int ret = 0;
     for(int i = 0; i < N; ++i)
     {
@@ -58,7 +58,7 @@ int main()
         }
     }
     cout << ret << ' ';
-    
+
     for(int i = 0; i < N; ++i)
     {
         for(int j = 0; j < N; ++j)
@@ -67,7 +67,7 @@ int main()
         }
     }
     memset(isChecked, false, sizeof(isChecked));
-    
+
     ret = 0;
     for(int i = 0; i < N; ++i)
     {
