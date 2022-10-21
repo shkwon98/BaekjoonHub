@@ -6,23 +6,12 @@ using namespace std;
 
 int solution(vector<int> citations)
 {
-    sort(citations.begin(), citations.end());
-    
-    int answer = 0;
-    
-    for(int i = citations.back(); i >= 0; --i)
-    {
-        int cnt = 0;
-        
-        for(int j = 0; j < citations.size(); ++j)
-            if(citations[j] >= i) cnt++;
+    sort(citations.begin(), citations.end(), greater<int>());
 
-        if(cnt >= i)
-        {
-            answer = i;
-            break;
-        }
+    for(int i = 0; i < citations.size(); ++i)
+    {
+        if(citations[i] <= i + 1) return i;
     }
-    
-    return answer;
+
+    return citations.size();
 }
