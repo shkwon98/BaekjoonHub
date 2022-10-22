@@ -20,7 +20,7 @@ long long solution(int n, vector<int> times)
         cnt = 0;
         
         for(int i = 0; i < times.size(); ++i)
-            cnt += midTime / times[i];
+            cnt += midTime / (long long)times[i];
         
         if(cnt < n) minTime = midTime + 1;
         else
